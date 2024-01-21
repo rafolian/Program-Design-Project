@@ -9,19 +9,31 @@
 # Phones: MEMBER_PHONE_1 | MEMBER_PHONE_2 | MEMBER_PHONE_3
 # *********************************************************
 
+# called by qah.py at the end of the game
+# received two variables, which is username and score
+
+# reference for multiple variable write: https://stackoverflow.com/questions/16822016/write-multiple-variables-to-a-file
+
+# reference for file operation: https://www.digitalocean.com/community/tutorials/python-read-file-open-write-delete-copy
+# ‘r’ : This mode indicate that file will be open for reading only
+# ‘w’ : This mode indicate that file will be open for writing only. If file containing containing that name does not exists, it will create a new one
+# ‘a’ : This mode indicate that the output of that program will be append to the previous output of that file
+# ‘r+’ : This mode indicate that file will be open for both reading and writing
+
 def save_score(username, score):
     with open("scoreboard.txt", "a") as file:
         file.write(f"{username}: {score}\n")
 
 # reference for readline: https://www.freecodecamp.org/news/how-to-read-a-file-line-by-line-in-python/
 # reference for try & except: https://stackoverflow.com/questions/34554332/under-which-circumstances-will-the-python-f-readlines-method-fail
-# reference for open option: https://www.digitalocean.com/community/tutorials/python-read-file-open-write-delete-copy
+
 def view_scoreboard():
     #
     try:
         with open("scoreboard.txt", "r") as file:
             scores = file.readlines()
-    # situation where there's no one played the puzzle yet
+
+    # situation where there's no one played the puzzle yet, hence no scoreboard.txt
     except FileNotFoundError:
         print("No scores recorded yet.")
         return
