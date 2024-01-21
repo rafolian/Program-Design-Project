@@ -10,15 +10,15 @@
 # *********************************************************
 
 # called by qah.py at the end of the game
-# received two variables, which is username and score
+# received two variables, which are username and score
 
 # reference for multiple variable write: https://stackoverflow.com/questions/16822016/write-multiple-variables-to-a-file
 
 # reference for file operation: https://www.digitalocean.com/community/tutorials/python-read-file-open-write-delete-copy
-# ‘r’ : This mode indicate that file will be open for reading only
-# ‘w’ : This mode indicate that file will be open for writing only. If file containing containing that name does not exists, it will create a new one
-# ‘a’ : This mode indicate that the output of that program will be append to the previous output of that file
-# ‘r+’ : This mode indicate that file will be open for both reading and writing
+# ‘r’: This mode indicates that the file will be open for reading only
+# ‘w’: This mode indicates that the file will be open for writing only. If the file containing that name does not exists, it will create a new one
+# ‘a’: This mode indicates that the output of that program will be appended to the previous output of that file
+# ‘r+’: This mode indicates that the file will be open for both reading and writing
 
 def save_score(username, score):
     with open("scoreboard.txt", "a") as file:
