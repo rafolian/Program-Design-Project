@@ -1,5 +1,5 @@
 # *********************************************************
-# Program: menu.py
+# Program: main.py
 # Course: PSP0101 PROBLEM SOLVING AND PROGRAM DESIGN
 # Class: TL??
 # Year: 2023/24 Trimester 1
