@@ -44,11 +44,12 @@ def view_scoreboard():
         # name and score are two strings that will receive value from each of the line item in scoreboard.txt
         # strip is to remove leading or trailing whitespace if any
         # split is to seperate the line into the two strings, first the name, second the score
+        # reference: https://www.freecodecamp.org/news/the-string-strip-method-in-python-explained/
         name, score = line.strip().split(': ')
 
         # Retrieves the current score for the player "name", otherwise gives 0
         # The score in the text file which is in string, is converted to int
-        # score is added effectively cummulate the value
+        # score is added effectively cummulate the value of the usernames
         score_dict[name] = score_dict.get(name, 0) + int(score)
 
     # Sort the score, highest score at the top
