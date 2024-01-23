@@ -12,7 +12,6 @@
 import user
 import score
 import qah
-import screen
 
 def main_menu():
     while True:
