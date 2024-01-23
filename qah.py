@@ -12,7 +12,6 @@
 import random
 import user
 import score
-import screen
 
 # dictionary of key-value pair
 
@@ -27,6 +26,26 @@ import screen
 # source of ascii arts: https://www.asciiart.eu/
 
 questions = {
+
+        """What is this?
+__                 
+'. \                
+ '- \               
+  / /_         .---.
+ / | \\,.\/--.//    )
+ |  \//        )/  / 
+  \  ' ^ ^    /    )____.----..  6
+   '.____.    .___/            \._) 
+      .\/.                      )
+       '\                       /
+       _/ \/    ).        )    (
+      /#  .!    |        /\    /
+      \  C// #  /'-----''/ #  / 
+   .   'C/ |    |    |   |    |mrf  ,
+   \), .. .'OOO-'. ..'OOO'OOO-'. ..\(,
+
+    """: {"answer": "Keyboard", "hint": "It has many letters."}, 
+
     """What is this?
 
        /      \ 
