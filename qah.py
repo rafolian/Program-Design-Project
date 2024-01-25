@@ -1,19 +1,20 @@
 # *********************************************************
-# Program: qah.py
+# Program: main.py
 # Course: PSP0101 PROBLEM SOLVING AND PROGRAM DESIGN
-# Class: TL??
+# Class: TL11-13
 # Year: 2023/24 Trimester 1
-# Names: MEMBER_NAME_1 | MEMBER_NAME_2 | MEMBER_NAME_3
-# IDs: MEMBER_ID_1 | MEMBER_ID_2 | MEMBER_ID_3
-# Emails: MEMBER_EMAIL_1 | MEMBER_EMAIL_2 | MEMBER_EMAIL_3
-# Phones: MEMBER_PHONE_1 | MEMBER_PHONE_2 | MEMBER_PHONE_3
+# Names: AMIRAH NAILOFAR
+# IDs: ID
+# Emails: EMAIL
+# Phones: PHONE
 # *********************************************************
 
 import random
 import user
 import score
+import time
 
-# dictionary of key-value pair
+# nested dictionary of key-value pair
 
 # questions = {
 #     """ASCII Art Representing a Subject""": {
@@ -23,6 +24,7 @@ import score
 #     # Other Question...
 # }
 
+# references on nested dictionary: https://www.w3schools.com/python/python_dictionaries_nested.asp
 # source of ascii arts: https://www.asciiart.eu/
 
 questions = {
@@ -41,7 +43,7 @@ __
        _/ \/    ).        )    (
       /#  .!    |        /\    /
       \  C// #  /'-----''/ #  / 
-   .   'C/ |    |    |   |    |mrf  ,
+   .   'C/ |    |    |   |    |abc  ,
    \), .. .'OOO-'. ..'OOO'OOO-'. ..\(,
 
     """: {"answer": "Keyboard", "hint": "It has many letters."}, 
@@ -103,13 +105,13 @@ __
     """: {"answer": "Fish", "hint": "It can swim in the ocean."}
 }
 
-def start_game():
-    username = user.register_user()
+def start_game(choice):
+    username = user.register_user(choice)
     user_score = 0
 
-    # Select 4 random questions
+    # Select 5 random questions
     # reference for random sample: https://www.geeksforgeeks.org/python-random-sample-function/
-    selected_questions = random.sample(list(questions.items()), 4)
+    selected_questions = random.sample(list(questions.items()), 5)
 
     print("=============================================================================\n")
 
@@ -130,5 +132,6 @@ def start_game():
             else:
                 print("Wrong again. The correct answer was:", data["answer"])
 
-    print(f"\nYour score: {user_score}")
     score.save_score(username, user_score)
+    print(f"\nYour score: {user_score}")
+    time.sleep(5.0)

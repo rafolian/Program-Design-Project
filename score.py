@@ -1,16 +1,18 @@
 # *********************************************************
-# Program: score.py
+# Program: main.py
 # Course: PSP0101 PROBLEM SOLVING AND PROGRAM DESIGN
-# Class: TL??
+# Class: TL11-13
 # Year: 2023/24 Trimester 1
-# Names: MEMBER_NAME_1 | MEMBER_NAME_2 | MEMBER_NAME_3
-# IDs: MEMBER_ID_1 | MEMBER_ID_2 | MEMBER_ID_3
-# Emails: MEMBER_EMAIL_1 | MEMBER_EMAIL_2 | MEMBER_EMAIL_3
-# Phones: MEMBER_PHONE_1 | MEMBER_PHONE_2 | MEMBER_PHONE_3
+# Names: AMIRAH NAILOFAR
+# IDs: ID
+# Emails: EMAIL
+# Phones: PHONE
 # *********************************************************
 
 # called by qah.py at the end of the game
 # received two variables, which are username and score
+
+import time
 
 # reference for multiple variable write: https://stackoverflow.com/questions/16822016/write-multiple-variables-to-a-file
 
@@ -56,10 +58,31 @@ def view_scoreboard():
     # reference: https://stackoverflow.com/questions/3766633/how-to-sort-with-lambda-in-python
     sorted_scores = sorted(score_dict.items(), key=lambda x: x[1], reverse=True)
 
+
+    # clear screen
+    print("\u001b[2J")
+    
     # Display the leaderboard
-    print("\nLeaderboard:")
-    for name, score in sorted_scores:
-        print(f"{name}: {score}")
+    # set background colour : Green
+    print("\u001b[42m")
+    print("\n"*5)
+    print("\n                 \u001b[1m\u001b[4mLeaderboard:\u001b[0m\u001b[42m")
+    print("")
+    count_sorted_score = 1
+    for name, score  in sorted_scores:
+        if count_sorted_score == 1: 
+            print(f"                 \u001b[1m{count_sorted_score}. {name}: {score}\u001b[0m\u001b[42m")
+            top_player_name = name
+            top_player_score = score
+        else: 
+            print(f"                 {count_sorted_score}. {name}: {score}")
+        count_sorted_score += 1
+    print("\n"*5)
+    time.sleep(5.0)
+    # screen set to default state
+    print("\u001b[0m")
+    # clear screen
+    print("\u001b[2J")
 
 def clear_scoreboard():
     open("scoreboard.txt", "w").close()

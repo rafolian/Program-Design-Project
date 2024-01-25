@@ -1,12 +1,12 @@
 # *********************************************************
 # Program: main.py
 # Course: PSP0101 PROBLEM SOLVING AND PROGRAM DESIGN
-# Class: TL??
+# Class: TL11-13
 # Year: 2023/24 Trimester 1
-# Names: MEMBER_NAME_1 | MEMBER_NAME_2 | MEMBER_NAME_3
-# IDs: MEMBER_ID_1 | MEMBER_ID_2 | MEMBER_ID_3
-# Emails: MEMBER_EMAIL_1 | MEMBER_EMAIL_2 | MEMBER_EMAIL_3
-# Phones: MEMBER_PHONE_1 | MEMBER_PHONE_2 | MEMBER_PHONE_3
+# Names: AMIRAH NAILOFAR
+# IDs: ID
+# Emails: EMAIL
+# Phones: PHONE
 # *********************************************************
 
 import user
@@ -15,18 +15,39 @@ import qah
 
 def main_menu():
     while True:
-        print("=============================================================================")
-        print("Welcome to the Mind Puzzler")
-        print("1. Start New Game")
-        print("2. View Scoreboard")
-        print("3. Exit")
-        choice = input("Enter your choice: ")
+        # clear screen
+        print("\u001b[2J")
+        # set background colour : Red
+        print("\u001b[41m")
+        print("""
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                ~       ____  ____  ______    _   __    ______~
+                ~      / / / / /  |/  /   |  / | / /   / /  _/~
+                ~ __  / / / / / /|_/ / /| | /  |/ /_  / // /  ~
+                ~/ /_/ / /_/ / /  / / ___ |/ /|  / /_/ // /   ~
+                ~\____/\____/_/  /_/_/  |_/_/ |_/\____/___/   ~
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~""")
+        print("\n"*2)        
+        print("                 \u001b[1m\u001b[4mWELCOME TO JUMANJI\u001b[0m\u001b[41m")
+        print("")
+        print("                 1. Start New Short Answer Game")
+        print("                 2. Start New Multiple Choice Game")
+        print("                 3. Start New True False Game")
+        print("                 4. View Scoreboard")
+        print("                 5. Exit")
+        print("\n"*2)
+        choice = input("                 Enter your choice: ")
+        print("\u001b[0m")
 
         if choice == '1':
-            qah.start_game()
+            qah.start_game(choice)
         elif choice == '2':
-            score.view_scoreboard()
+            qah.start_game(choice)
         elif choice == '3':
+            qah.start_game(choice)
+        elif choice == '4':
+            score.view_scoreboard()
+        elif choice == '5':
             print("Thanks for playing. Goodbye.")
             print("=============================================================================\n")
             break

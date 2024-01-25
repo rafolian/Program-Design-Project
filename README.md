@@ -1,13 +1,16 @@
-# ****************************\*****************************
+# PSP0101 PROBLEM SOLVING AND PROGRAM DESIGN
 
-# Course: PSP0101 PROBLEM SOLVING AND PROGRAM DESIGN
+****\*\*\*\*****\*\*\*\*****\*\*\*\*****\*****\*\*\*\*****\*\*\*\*****\*\*\*\*****
+Program: main.py
+Course: PSP0101 PROBLEM SOLVING AND PROGRAM DESIGN
+Class: TL11-13
+Year: 2023/24 Trimester 1
+Names: AMIRAH NAILOFAR
+IDs: ID
+Emails: EMAIL
+Phones: PHONE
+****\*\*\*\*****\*\*\*\*****\*\*\*\*****\*****\*\*\*\*****\*\*\*\*****\*\*\*\*****
 
-# Class: TC3L
+to run the program: type python main.py
 
-# Year: 23/24 Trimester 1
-
-# Names: MEMBER_NAME_1 | MEMBER_NAME_2 | AMIRAH NAILOFAR | MEMBER_NAME_4
-
-# IDs: MEMBER_ID_1 | MEMBER_ID_2 | 1231102231 | MEMBER_ID_4
-
-# ****************************\*****************************
+<em>In fulfilment of course requirements at Multimedia University. All rights reserved.</em>
