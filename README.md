@@ -1,16 +1,12 @@
 # PSP0101 PROBLEM SOLVING AND PROGRAM DESIGN
 
-****\*\*\*\*****\*\*\*\*****\*\*\*\*****\*****\*\*\*\*****\*\*\*\*****\*\*\*\*****
-Program: main.py
-Course: PSP0101 PROBLEM SOLVING AND PROGRAM DESIGN
-Class: TL11-13
-Year: 2023/24 Trimester 1
-Names: AMIRAH NAILOFAR
-IDs: ID
-Emails: EMAIL
-Phones: PHONE
-****\*\*\*\*****\*\*\*\*****\*\*\*\*****\*****\*\*\*\*****\*\*\*\*****\*\*\*\*****
+This application uses the following external libraries:
 
-to run the program: type python main.py
+1. random
+2. time
+3. pygame
+
+Before running the program, please install pygame (pip install pygame).
+To run the program: type python main.py.
 
 <em>In fulfilment of course requirements at Multimedia University. All rights reserved.</em>
