@@ -1,12 +1,12 @@
 # *********************************************************
-# Program: main.py
+# Program: user.py
 # Course: PSP0101 PROBLEM SOLVING AND PROGRAM DESIGN
 # Class: TL11-13
-# Year: 2023/24 Trimester 1
-# Names: AMIRAH NAILOFAR
-# IDs: ID
-# Emails: EMAIL
-# Phones: PHONE
+# Year: 2023/2024 Trimester 1
+# Name: AMIRAH NAILOFAR BINTI MUHAMAD HAFIDZ
+# ID: 1231102231
+# Email: 1231102231@student.mmu.edu.my
+# Phone: 011-1001-8080
 # *********************************************************
 
 def register_user(choice):
