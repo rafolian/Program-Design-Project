@@ -28,6 +28,7 @@ import playsound
 # references on nested dictionary: https://www.w3schools.com/python/python_dictionaries_nested.asp
 # source of ascii arts: https://www.asciiart.eu/
 
+# short answer questions, answers and hints
 question_group1 = {
 
         """What is this?
@@ -102,6 +103,7 @@ __
     """: {"answer": "Fish", "hint": "It can swim in the ocean."}
 }
 
+# MCQ, answers and hints
 question_group2 = {
     """What is the main plot device that drives the story in "Jumanji"?
     A. A magical board game
@@ -149,24 +151,25 @@ question_group2 = {
     }
 }
 
+# True or False questions, answers and hints
 question_group3 = {
-    """The first "Jumanji" movie was released in the year 1995.""": {
+    """The first "Jumanji" movie was released in the year 1995. True or False?""": {
         "answer": "True",
         "hint": "Think about the era in which Robin Williams was at the peak of his career in family-oriented films."
     },
-    """In the movie, every time the dice is rolled, players are transported into a jungle.""": {
+    """In the movie, every time the dice is rolled, players are transported into a jungle. True or False?""": {
         "answer": "False",
         "hint": "Consider the setting of the film. Does the setting change with each roll, or does the game bring the jungle elements to the players?"
     },
-     """The movie ends with Alan and Sarah throwing the Jumanji board game into a river.""": {
+     """The movie ends with Alan and Sarah throwing the Jumanji board game into a river. True or False?""": {
         "answer": "True",
         "hint": " Consider how the characters might deal with such a dangerous game at the film's conclusion. Would disposing of it in a river make sense?"
     },
-    """One of the challenges faced by the characters is a destructive monsoon inside the house.""": {
+    """One of the challenges faced by the characters is a destructive monsoon inside the house. True or False?""": {
         "answer": "True",
         "hint": "Think about the variety of jungle-themed hazards that the game brings to life. Does a monsoon seem like a likely challenge?"
     },
-    """Robin Williams' character, Alan Parrish, is an astronaut who returns from space.""": {
+    """Robin Williams' character, Alan Parrish, is an astronaut who returns from space. True or False?""": {
         "answer": "False",
         "hint": "Focus on the main theme of the movie. Does it revolve around space travel or something more mystical?"
     },
@@ -178,30 +181,47 @@ def start_game(choice):
 
     # Select 5 random questions
     # reference for random sample: https://www.geeksforgeeks.org/python-random-sample-function/
-    if choice == "1":
+    if choice == '1':
         selected_questions = random.sample(list(question_group1.items()), 5)
-    elif choice == "2":
+    elif choice == '2':
         selected_questions = random.sample(list(question_group2.items()), 5)
-    elif choice == "3":
+    elif choice == '3':
         selected_questions = random.sample(list(question_group3.items()), 5) 
     
     # clear screen 
     print("\u001b[2J")
-    print("=============================================================================\n")
+
+    # stop previous music
     playsound.music_stop()
+
+    # play sound of pink panther music
+    # source: https://www2.cs.uic.edu/~i101/SoundFiles/PinkPanther60.wav
     playsound.music_play("PinkPanther60.wav")
 
+    print("=============================================================================\n")
+    print("Welcome to the JUMANJI!")
+    print("Answer the following questions correctly to score points.")
+    print("If you get the answer wrong, you will be given a hint.")
+    print("You have to answer correctly on the second try to score points.")
+    print("Good luck!\n")
+    print("=============================================================================\n")
+
+    # loop through the selected questions
     for question, data in selected_questions:
         print(f"\n{question}")
         user_answer = input("Your answer: ")
 
+        # check if user's answer is correct and give +1 points
         if user_answer.lower() == data["answer"].lower():
             print("Correct!")
             user_score += 1
+        
+        # if user's answer is wrong, give hint and ask for answer again
         else:
             print("That's not correct.")
             print(f"Hint: {data['hint']}")
             user_answer = input("Try again: ")
+
             if user_answer.lower() == data["answer"].lower():
                 print("Correct!")
                 user_score += 1
@@ -210,4 +230,7 @@ def start_game(choice):
 
     score.save_score(username, user_score)
     print(f"\nYour score: {user_score}")
+
+    # sleep for 5 seconds, then go back to main menu
+    print("\nReturning to main menu...")
     time.sleep(5.0)

@@ -58,7 +58,6 @@ def view_scoreboard():
     # reference: https://stackoverflow.com/questions/3766633/how-to-sort-with-lambda-in-python
     sorted_scores = sorted(score_dict.items(), key=lambda x: x[1], reverse=True)
 
-
     # clear screen
     print("\u001b[2J")
     
@@ -69,7 +68,13 @@ def view_scoreboard():
     print("\n                 \u001b[1m\u001b[4mLeaderboard:\u001b[0m\u001b[42m")
     print("")
     count_sorted_score = 1
-    for name, score  in sorted_scores:
+
+    # if there's no score recorded, print the message
+    if not sorted_scores:
+        print("                 \u001b[1mThere are no score recorded.\u001b[0m\u001b[42m")
+
+    for name, score in sorted_scores:
+        # set the top player's name and score to be bold)
         if count_sorted_score == 1: 
             print(f"                 \u001b[1m{count_sorted_score}. {name}: {score}\u001b[0m\u001b[42m")
             top_player_name = name
@@ -78,12 +83,37 @@ def view_scoreboard():
             print(f"                 {count_sorted_score}. {name}: {score}")
         count_sorted_score += 1
     print("\n"*5)
+    
+    # sleep for 5 seconds, then go back to main menu
+    print("\n                 Returning to main menu...")
     time.sleep(5.0)
+    
     # screen set to default state
     print("\u001b[0m")
+
     # clear screen
     print("\u001b[2J")
 
 def clear_scoreboard():
+    
+    # clear screen
+    print("\u001b[2J")
+    
+    # Display the leaderboard
+    # set background colour : Green
+    print("\u001b[42m")
+    print("\n"*5)
+    print("\n                 \u001b[1m\u001b[4mLeaderboard:\u001b[0m\u001b[42m")
+    print("")
     open("scoreboard.txt", "w").close()
-    print("Scoreboard cleared.")
+    print("                 Scoreboard cleared.")
+
+    # sleep for 5 seconds, then go back to main menu
+    print("\n                 Returning to main menu...")
+    time.sleep(5.0)
+
+    # screen set to default state
+    print("\u001b[0m")
+
+    # clear screen
+    print("\u001b[2J")

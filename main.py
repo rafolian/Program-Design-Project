@@ -47,8 +47,11 @@ def main_menu():
     while True:
         # clear screen 
         print("\u001b[2J")
+
         # set background colour : Red
         print("\u001b[41m")
+
+        # intro logo
         print("""
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 ~       ____  ____  ______    _   __    ______~
@@ -57,18 +60,29 @@ def main_menu():
                 ~/ /_/ / /_/ / /  / / ___ |/ /|  / /_/ // /   ~
                 ~\____/\____/_/  /_/_/  |_/_/ |_/\____/___/   ~
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~""")
-        print("\n"*2)        
-        print("                 \u001b[1m\u001b[4mWELCOME TO JUMANJI\u001b[0m\u001b[41m")
-        print("")
+        print("\n"*2)
+
+        # bold and underline
+        print("                 \u001b[1m\u001b[4mWELCOME TO JUMANJI\u001b[0m\u001b[41m\n")
+
+        # menu
         print("                 1. Start New Short Answer Game")
         print("                 2. Start New Multiple Choice Game")
         print("                 3. Start New True False Game")
         print("                 4. View Scoreboard")
-        print("                 5. Exit")
-        print("\n"*2)
+        print("                 5. Reset Scoreboard")
+        print("                 6. Exit\n\n")
+
+        # play sound of starwars music
+        # source: https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav
         playsound.music_play("StarWars60.wav")
+
+        # user input
         choice = input("                 Enter your choice: ")
+        
+        # reset ANSI escape code
         print("\u001b[0m")
+
         if choice == '1':
             qah.start_game(choice)
         elif choice == '2':
@@ -78,11 +92,13 @@ def main_menu():
         elif choice == '4':
             score.view_scoreboard()
         elif choice == '5':
+            score.clear_scoreboard()
+        elif choice == '6':
             print("Thanks for playing. Goodbye.")
-            print("=============================================================================\n")
             break
         else:
             print("Invalid choice. Please try again.")
 
+# when run from command line
 if __name__ == "__main__":
     main_menu()
