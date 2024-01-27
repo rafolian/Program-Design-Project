@@ -41,7 +41,7 @@ import playsound
 # Bold: \u001b[1m
 # Underline: \u001b[4m
 # Blink: \u001b[5m
-# Reset: \u001b[0m]]
+# Reset: \u001b[0m
 
 def main_menu():
     while True:
@@ -66,11 +66,14 @@ def main_menu():
         print("                 \u001b[1m\u001b[4mWELCOME TO JUMANJI\u001b[0m\u001b[41m\n")
 
         # menu
-        print("                 1. Start New Short Answer Game")
-        print("                 2. Start New Multiple Choice Game")
-        print("                 3. Start New True False Game")
+        print("                 \u001b[4mStart New Game:\u001b[0m\u001b[41m\n")
+        print("                 1. Short Answer")
+        print("                 2. Multiple Choice")
+        print("                 3. True False\n")
+        print("                 \u001b[4mGame Scoreboard:\u001b[0m\u001b[41m\n")
         print("                 4. View Scoreboard")
-        print("                 5. Reset Scoreboard")
+        print("                 5. Reset Scoreboard\n")
+        print("                 \u001b[4mGame Exit:\u001b[0m\u001b[41m\n")
         print("                 6. Exit\n\n")
 
         # play sound of starwars music
@@ -82,7 +85,8 @@ def main_menu():
         
         # reset ANSI escape code
         print("\u001b[0m")
-
+        
+        # check user input and call function accordingly 
         if choice == '1':
             qah.start_game(choice)
         elif choice == '2':
@@ -92,7 +96,7 @@ def main_menu():
         elif choice == '4':
             score.view_scoreboard()
         elif choice == '5':
-            score.clear_scoreboard()
+            score.reset_scoreboard()
         elif choice == '6':
             print("Thanks for playing. Goodbye.")
             break

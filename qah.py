@@ -175,6 +175,7 @@ question_group3 = {
     },
 }
 
+# function for starting the game
 def start_game(choice):
     username = user.register_user(choice)
     user_score = 0
@@ -198,6 +199,7 @@ def start_game(choice):
     # source: https://www2.cs.uic.edu/~i101/SoundFiles/PinkPanther60.wav
     playsound.music_play("PinkPanther60.wav")
 
+    # print welcome message
     print("=============================================================================\n")
     print("Welcome to the JUMANJI!")
     print("Answer the following questions correctly to score points.")
@@ -221,13 +223,15 @@ def start_game(choice):
             print("That's not correct.")
             print(f"Hint: {data['hint']}")
             user_answer = input("Try again: ")
-
+            # check if user's answer is correct and give +1 points
+            # if user's answer is still wrong, give correct answer
             if user_answer.lower() == data["answer"].lower():
                 print("Correct!")
                 user_score += 1
             else:
                 print("Wrong again. The correct answer was:", data["answer"])
 
+    # save user's score
     score.save_score(username, user_score)
     print(f"\nYour score: {user_score}")
 

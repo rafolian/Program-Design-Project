@@ -9,9 +9,6 @@
 # Phone: 011-1001-8080
 # *********************************************************
 
-# called by qah.py at the end of the game
-# received two variables, which are username and score
-
 import time
 
 # reference for multiple variable write: https://stackoverflow.com/questions/16822016/write-multiple-variables-to-a-file
@@ -22,15 +19,20 @@ import time
 # ‘a’: This mode indicates that the output of that program will be appended to the previous output of that file
 # ‘r+’: This mode indicates that the file will be open for both reading and writing
 
+# called by qah.py at the end of the game
+# received two variables, which are username and score\
+# write the username and score into scoreboard.txt
 def save_score(username, score):
     with open("scoreboard.txt", "a") as file:
         file.write(f"{username}: {score}\n")
 
-# reference for readline: https://www.freecodecamp.org/news/how-to-read-a-file-line-by-line-in-python/
-# reference for try & except: https://stackoverflow.com/questions/34554332/under-which-circumstances-will-the-python-f-readlines-method-fail
-
 def view_scoreboard():
-    #
+
+    # readlines() is to read all the lines in the file and return them as a list of strings
+    # reference: https://www.freecodecamp.org/news/how-to-read-a-file-line-by-line-in-python/
+
+    # read the scoreboard.txt file
+    # if there's no scoreboard.txt, FileNotFoundError will be raised and the program will handle it
     try:
         with open("scoreboard.txt", "r") as file:
             scores = file.readlines()
@@ -61,11 +63,14 @@ def view_scoreboard():
     # clear screen
     print("\u001b[2J")
     
-    # Display the leaderboard
+    # display the scoreboard
     # set background colour : Green
     print("\u001b[42m")
     print("\n"*5)
-    print("\n                 \u001b[1m\u001b[4mLeaderboard:\u001b[0m\u001b[42m")
+
+    # print the title
+    print("\n                 \u001b[1m\u001b[42mScoreboard:\u001b[0m\u001b[42m")
+
     print("")
     count_sorted_score = 1
 
@@ -73,6 +78,7 @@ def view_scoreboard():
     if not sorted_scores:
         print("                 \u001b[1mThere are no score recorded.\u001b[0m\u001b[42m")
 
+    # if there's score recorded, print the top player's name and score in bold
     for name, score in sorted_scores:
         # set the top player's name and score to be bold)
         if count_sorted_score == 1: 
@@ -94,12 +100,12 @@ def view_scoreboard():
     # clear screen
     print("\u001b[2J")
 
-def clear_scoreboard():
+def reset_scoreboard():
     
-    # clear screen
+    # reset screen
     print("\u001b[2J")
     
-    # Display the leaderboard
+    # display the scoreboard
     # set background colour : Green
     print("\u001b[42m")
     print("\n"*5)
@@ -107,6 +113,7 @@ def clear_scoreboard():
     print("")
     open("scoreboard.txt", "w").close()
     print("                 Scoreboard cleared.")
+    print("\n"*5)
 
     # sleep for 5 seconds, then go back to main menu
     print("\n                 Returning to main menu...")
