@@ -65,11 +65,12 @@ def main_menu():
                 ~/ /_/ / /_/ / /  / / ___ |/ /|  / /_/ // /   ~
                 ~\____/\____/_/  /_/_/  |_/_/ |_/\____/___/   ~
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~""")
-        print("\n"*2)
-
+        print("")
+        print("")
+        print("")
         # bold and underline
-        print("                 \u001b[1m\u001b[4mWELCOME TO JUMANJI\u001b[0m\u001b[41m\n")
-
+        print("                 \u001b[1m\u001b[4mWELCOME TO JUMANJI\u001b[0m\u001b[41m")
+        print("")
         # menu underline
         print("                 \u001b[4mStart New Game:\u001b[0m\u001b[41m\n")
         print("                 1. Short Answer")
