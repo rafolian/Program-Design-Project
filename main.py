@@ -51,39 +51,38 @@ def main_menu():
         playsound.music_play("StarWars60.wav")
 
         # clear screen 
-        print("\x1b[2J")
+        print("\u001b[2J")
 
         # set background colour : Red
         print("\x1b[41m")
 
         # intro logo
-        print("""
+        print("""\u001b[41m
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 ~       ____  ____  ______    _   __    ______~
                 ~      / / / / /  |/  /   |  / | / /   / /  _/~
                 ~ __  / / / / / /|_/ / /| | /  |/ /_  / // /  ~
                 ~/ /_/ / /_/ / /  / / ___ |/ /|  / /_/ // /   ~
                 ~\____/\____/_/  /_/_/  |_/_/ |_/\____/___/   ~
-                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~""")
-        print("")
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\u001b[0m""")
         print("")
         print("")
         # bold and underline
-        print("                 \u001b[1m\u001b[4mWELCOME TO JUMANJI\u001b[0m\u001b[41m")
+        print("                 \u001b[1m\u001b[4mWELCOME TO JUMANJI\u001b[0m")
         print("")
         # menu underline
-        print("                 \u001b[4mStart New Game:\u001b[0m\u001b[41m\n")
+        print("                 \u001b[4mStart New Game:\u001b[0m\n")
         print("                 1. Short Answer")
         print("                 2. Multiple Choice")
         print("                 3. True or False\n")
 
         # menu underline
-        print("                 \u001b[4mGame Scoreboard:\u001b[0m\u001b[41m\n")
+        print("                 \u001b[4mGame Scoreboard:\u001b[0m\n")
         print("                 4. View Scoreboard")
         print("                 5. Reset Scoreboard\n")
 
         # menu underline
-        print("                 \u001b[4mGame Exit:\u001b[0m\u001b[41m\n")
+        print("                 \u001b[4mGame Exit:\u001b[0m\n")
         print("                 6. Exit\n\n")
 
         # user input
