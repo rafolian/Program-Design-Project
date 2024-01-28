@@ -105,7 +105,7 @@ __
 
 # MCQ, answers and hints
 question_group2 = {
-    """What is the main plot device that drives the story in "Jumanji"?
+    """What is the main plot device that drives the story in "Jumanji?"
     A. A magical board game
     B. A haunted house
     C. A time-traveling machine
@@ -195,10 +195,6 @@ def start_game(choice):
     # stop previous music
     playsound.music_stop()
 
-    # play sound of pink panther music
-    # source: https://www2.cs.uic.edu/~i101/SoundFiles/PinkPanther60.wav
-    playsound.music_play("PinkPanther60.wav")
-
     # print welcome message
     print("=============================================================================\n")
     print("Welcome to the JUMANJI!")
@@ -210,31 +206,57 @@ def start_game(choice):
 
     # loop through the selected questions
     for question, data in selected_questions:
-        print(f"\n{question}")
+        print(f"\u001b[33m{question}\u001b[0m")
+        print("\n"*5)
         user_answer = input("Your answer: ")
 
+        # nested if statement
         # check if user's answer is correct and give +1 points
         if user_answer.lower() == data["answer"].lower():
-            print("Correct!")
+            playsound.music_play("CorrectAnswerSound.wav")
+            print("\u001b[32mCorrect!\u001b[0m")
+            time.sleep(3.0)
+            # clear screen 
+            print("\u001b[2J")
+
+            # augmented assignments
+            # add 1 point to user's score
             user_score += 1
-        
+    
         # if user's answer is wrong, give hint and ask for answer again
         else:
-            print("That's not correct.")
-            print(f"Hint: {data['hint']}")
+            playsound.music_play("WrongAnswerSound.wav")
+            print("\u001b[31mThat's not correct.\u001b[0m")
+            print(f"\n\u001b[35mHint: {data['hint']}\u001b[0m")
             user_answer = input("Try again: ")
+            
             # check if user's answer is correct and give +1 points
             # if user's answer is still wrong, give correct answer
             if user_answer.lower() == data["answer"].lower():
-                print("Correct!")
+                playsound.music_play("CorrectAnswerSound.wav")
+                print("\u001b[32mCorrect!\u001b[0m")
+                time.sleep(2.0)
+                # clear screen 
+                print("\u001b[2J")
+
+                # augmented assignments
+                # add 1 point to user's score
                 user_score += 1
             else:
-                print("Wrong again. The correct answer was:", data["answer"])
+                playsound.music_play("WrongAnswerSound.wav")
+                print("\u001b[31mWrong again. The correct answer was:", data["answer"])
+                print("\u001b[0m")
+                time.sleep(2.0)
+                # clear screen 
+                print("\u001b[2J")
 
     # save user's score
     score.save_score(username, user_score)
-    print(f"\nYour score: {user_score}")
+    print(f"\n                 Your score: {user_score}")
 
-    # sleep for 5 seconds, then go back to main menu
-    print("\nReturning to main menu...")
-    time.sleep(5.0)
+    # animation for the 5 seconds sleep
+    for i in range(5, 0, -1):
+        # \r is to return the cursor to the beginning of the line for the next print
+        # end="" is to prevent the print() function from printing a new line
+        print(f"\r                 Returning to main menu in {i} seconds...", end="")
+        time.sleep(1)

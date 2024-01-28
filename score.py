@@ -1,3 +1,4 @@
+
 # *********************************************************
 # Program: score.py
 # Course: PSP0101 PROBLEM SOLVING AND PROGRAM DESIGN
@@ -10,6 +11,7 @@
 # *********************************************************
 
 import time
+import playsound 
 
 # reference for multiple variable write: https://stackoverflow.com/questions/16822016/write-multiple-variables-to-a-file
 
@@ -56,12 +58,22 @@ def view_scoreboard():
         # score is added effectively cummulate the value of the usernames
         score_dict[name] = score_dict.get(name, 0) + int(score)
 
-    # Sort the score, highest score at the top
+    # tuple of sorted_scores used to store the key-value pair
+    # sort the score, highest score at the top
     # reference: https://stackoverflow.com/questions/3766633/how-to-sort-with-lambda-in-python
+    # reverse=True is to sort the score in descending order
+    # key=lambda x: x[1] is to sort the score based on the second item in the tuple, which is the score
     sorted_scores = sorted(score_dict.items(), key=lambda x: x[1], reverse=True)
 
     # clear screen
     print("\u001b[2J")
+
+    # stop previous music
+    playsound.music_stop()
+
+    # play sound of pink panther music
+    # source: https://www2.cs.uic.edu/~i101/SoundFiles/PinkPanther60.wav
+    playsound.music_play("PinkPanther60.wav")
     
     # display the scoreboard
     # set background colour : Green
@@ -90,9 +102,12 @@ def view_scoreboard():
         count_sorted_score += 1
     print("\n"*5)
     
-    # sleep for 5 seconds, then go back to main menu
-    print("\n                 Returning to main menu...")
-    time.sleep(5.0)
+    # animation for the 5 seconds sleep
+    for i in range(5, 0, -1):
+        # \r is to return the cursor to the beginning of the line for the next print
+        # end="" is to prevent the print() function from printing a new line
+        print(f"\r                 Returning to main menu in {i} seconds...", end="")
+        time.sleep(1)
     
     # screen set to default state
     print("\u001b[0m")
@@ -104,6 +119,13 @@ def reset_scoreboard():
     
     # reset screen
     print("\u001b[2J")
+
+    # stop previous music
+    playsound.music_stop()
+
+    # play sound of pink panther music
+    # source: https://www2.cs.uic.edu/~i101/SoundFiles/PinkPanther60.wav
+    playsound.music_play("PinkPanther60.wav")
     
     # display the scoreboard
     # set background colour : Green
@@ -111,13 +133,18 @@ def reset_scoreboard():
     print("\n"*5)
     print("\n                 \u001b[1m\u001b[4mLeaderboard:\u001b[0m\u001b[42m")
     print("")
+
+    # clear the scoreboard.txt file
     open("scoreboard.txt", "w").close()
     print("                 Scoreboard cleared.")
     print("\n"*5)
 
-    # sleep for 5 seconds, then go back to main menu
-    print("\n                 Returning to main menu...")
-    time.sleep(5.0)
+    # animation for the 5 seconds sleep
+    for i in range(5, 0, -1):
+        # \r is to return the cursor to the beginning of the line for the next print
+        # end="" is to prevent the print() function from printing a new line
+        print(f"\r                 Returning to main menu in {i} seconds...", end="")
+        time.sleep(1)
 
     # screen set to default state
     print("\u001b[0m")

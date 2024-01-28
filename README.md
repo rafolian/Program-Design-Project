@@ -1,9 +1,9 @@
 # PSP0101 PROBLEM SOLVING AND PROGRAM DESIGN
 
-This application, main.py contains the followings:
+This application is Jumanji: Interactive game for kids. The main program is main.py containing the followings:
 
-1. background music
-2. infinite loop with a menu of 6 choices
+1. initiate background music
+2. run infinite loop with a menu of 6 choices
 
 This application uses the following internal libraries:
 

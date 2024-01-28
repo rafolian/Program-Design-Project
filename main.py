@@ -45,6 +45,11 @@ import playsound
 
 def main_menu():
     while True:
+
+        # play sound of starwars music
+        # source: https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav
+        playsound.music_play("StarWars60.wav")
+
         # clear screen 
         print("\u001b[2J")
 
@@ -65,20 +70,20 @@ def main_menu():
         # bold and underline
         print("                 \u001b[1m\u001b[4mWELCOME TO JUMANJI\u001b[0m\u001b[41m\n")
 
-        # menu
+        # menu underline
         print("                 \u001b[4mStart New Game:\u001b[0m\u001b[41m\n")
         print("                 1. Short Answer")
         print("                 2. Multiple Choice")
-        print("                 3. True False\n")
+        print("                 3. True or False\n")
+
+        # menu underline
         print("                 \u001b[4mGame Scoreboard:\u001b[0m\u001b[41m\n")
         print("                 4. View Scoreboard")
         print("                 5. Reset Scoreboard\n")
+
+        # menu underline
         print("                 \u001b[4mGame Exit:\u001b[0m\u001b[41m\n")
         print("                 6. Exit\n\n")
-
-        # play sound of starwars music
-        # source: https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav
-        playsound.music_play("StarWars60.wav")
 
         # user input
         choice = input("                 Enter your choice: ")

@@ -9,15 +9,15 @@
 # Phone: 011-1001-8080
 # *********************************************************
 
-# Reference for use of sound using pygame: https://stackoverflow.com/questions/63449184/playing-sound-using-pygame-python
+# reference for use of sound using pygame: https://stackoverflow.com/questions/63449184/playing-sound-using-pygame-python
 import pygame
 
-# Function to play sound
+# function to play sound
 def music_play(sound_file):
     pygame.mixer.init()
     pygame.mixer.music.load(sound_file)
     pygame.mixer.music.play()
 
-# Function to stop sound
+# function to stop sound
 def music_stop():
     pygame.mixer.music.stop()
