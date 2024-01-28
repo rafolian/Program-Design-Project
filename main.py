@@ -51,10 +51,10 @@ def main_menu():
         playsound.music_play("StarWars60.wav")
 
         # clear screen 
-        print("\u001b[2J")
+        print("\x1b[2J")
 
         # set background colour : Red
-        print("\u001b[41m")
+        print("\x1b[41m")
 
         # intro logo
         print("""
